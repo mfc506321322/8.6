@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/swiper-4.3.3.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./fonts2/iconfont.css">
+    <script src="./js/better-scroll.min.js"></script>
+    <script src="./js/flexible.js"></script>
+    <script src="./js/swiper-4.3.3.min.js"></script>
+    <script src="./js/script.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="head">
+                讨论版
+            </div>
+            <div class="banner swiper-container">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="./img/img1.png" alt="">
+                        <span>论杂志封面的宠儿</span>
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="./img/img1.png" alt="">
+                        <span>论杂志</span>
+                    </li>
+                </ul>
+                <ol class="swiper-pagination"></ol>
+            </div>
+        </header>
+        <main class="main">
+            <div class="head">
+                有书头条
+            </div>
+            <ul class="list">
+                <!-- <li>
+                    <dl>
+                        <dd>
+                            <div class="top">
+                                <h3>你所不知道的“转转书店”</h3>
+                                <span>你所不知道的“转转书店”你所不知道的“转转书店”你所不知道的“转转书店”</span>
+                            </div>
+                            <em>2018-8-6</em>
+                        </dd>
+                        <dt>
+                            <img src="./img/pic1.png" alt="">
+                        </dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dd>
+                            <div class="top">
+                                <h3>论杂志封面宠儿我只服特朗普</h3>
+                                <span>论杂志封面的宠儿我只服特朗普论杂志封面的宠儿我只服特朗普论杂志封面的宠儿我只服特朗普</span>
+                            </div>
+                            <em>2018-8-5</em>
+                        </dd>
+                        <dt>
+                            <img src="./img/pic2.png" alt="">
+                        </dt>
+                    </dl>
+                </li> -->
+            </ul>
+        </main>
+        <footer class="footer">
+
+        </footer>
+    </div>
+    <script>
+        new Swiper('.banner',{
+            pagination:{
+                el:'ol'
+            },
+            autoplay:true
+        });
+        var list = document.querySelectorAll('.list')[0];
+        ajax("/api/getData",function(data){
+            var data = JSON.parse(data);
+            var str = '';
+            for(var i = 0;i<3;i++){
+                data.data.forEach(function(v){
+                    str += `<li>
+                        <dl>
+                            <dd>
+                                <div class="top">
+                                    <h3>${v.title}</h3>
+                                    <span>${v.text}</span>
+                                </div>
+                                <em>${v.time}</em>
+                            </dd>
+                            <dt>
+                                <img src="${v.img}" alt="">
+                            </dt>
+                        </dl>
+                    </li>`;
+                })
+            }
+            list.innerHTML = str;
+        })
+    </script>
+</body>
+</html>

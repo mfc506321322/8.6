@@ -1,0 +1,85 @@
+@import "./common.scss";
+.wrap{
+    width: 100%;
+    max-width: rem(640px);
+    min-width: rem(320px);
+    height: 100%;
+    overflow:hidden;
+    display: flex;
+    flex-direction: column;
+}
+.head{
+    width: 100%;
+    height: rem(60px);
+    text-align: center;
+    line-height: rem(60px);
+    font-size: rem(24px);
+    background: #ddd;
+}
+.header{
+    width: 100%;
+    .banner{
+        width: 100%;
+        ul{
+            width: 100%;
+            li{
+                padding:0 rem(15px);
+                width: 100%;
+                img{
+                    width: 100%;
+                    display: block;
+                }
+                span{
+                    width: 100%;
+                    display: block;
+                    text-align: center;
+                    font-size: rem(22px);
+                }
+            }
+        }
+    }
+}
+.main{
+    flex: 1;
+    overflow:hidden;
+    display: flex;
+    flex-direction: column;
+}
+.list{
+    flex:1;
+    overflow-y: auto;
+    li{
+        width: 100%;
+        padding:rem(15px);
+        dl{
+            width: 100%;
+            display: flex;
+            dd{
+                padding-right: rem(15px);
+                flex:1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                h3{
+                    font-size: rem(16px);
+                    font-weight: bold;
+                }
+                span{
+                    font-size: rem(14px);
+                    color: #999;
+                    @include hang(2);
+                }
+                em{
+                    font-size: rem(14px);
+                    color: #999;
+                }
+            }
+            dt{
+                img{
+                    height: rem(110px);
+                    display: block;
+                }
+            }
+        }
+    }
+}

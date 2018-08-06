@@ -1,0 +1,27 @@
+{
+  "name": "8.6zhoukao",
+  "version": "1.0.0",
+  "description": "8.6周考",
+  "main": "gulpflie.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfc506321322/8.6zhoukao.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mfc506321322/8.6zhoukao/issues"
+  },
+  "homepage": "https://github.com/mfc506321322/8.6zhoukao#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-uglify": "^3.0.1",
+    "gulp-webserver": "^0.9.1"
+  }
+}
