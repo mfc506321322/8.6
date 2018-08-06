@@ -18,7 +18,14 @@ var fs = require('fs'),
 path = require('path'),
 url = require('url');
 var data = require('./mock/data.json');
-
+gulp.task('zipjs',function(){
+    gulp.src('./src/js/script.js')
+        .pipe(es5js({
+            presets:"es2015"
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest('./src/js'))
+})
 gulp.task('server',function(){
     return gulp.src('./mock')
         .pipe(server({
@@ -41,4 +48,4 @@ gulp.task('server',function(){
 gulp.task('reload',function(){
     gulp.watch('./src/css/*.scss',["server"]);
 })
-gulp.task('default',["server","reload"]);
+gulp.task('default',["zipjs","server","reload"]);
